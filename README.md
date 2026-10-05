@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # nectar_store
+=======
+# nectar
+>>>>>>> 0f8a48c (initial commit)
 
 A new Flutter project.
 
