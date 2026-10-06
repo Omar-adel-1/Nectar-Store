@@ -7,15 +7,9 @@ final PageController _bannerPageController = PageController();
 int _currentBannerIndex = 0;
 
 final List<Map<String, String>> banners = [
-  {'bgImage': 'assets/images/banner.png'},
-  {
-    'bgImage': 'https://img.freepik.com/free-vector/soft-yellow-abstract-background_1048-12886.jpg',
-    'sideImage': 'https://cdn-icons-png.flaticon.com/512/3194/3194766.png',
-  },
-  {
-    'bgImage': 'https://img.freepik.com/free-vector/soft-blue-abstract-background_1048-12887.jpg',
-    'sideImage': 'https://cdn-icons-png.flaticon.com/512/2909/2909808.png',
-  },
+  {'bgImage': 'assets/images/banner_fr.jpeg'},
+  {'bgImage': 'assets/images/banner_veg.jpeg'},
+  {'bgImage': 'assets/images/banner_drink.jpeg'},
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -135,13 +129,13 @@ class _HomeScreenState extends State<HomeScreen> {
               // Banner
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(16),
+                height: 145,
+                // padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.green[50],
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: SizedBox(
-                  height: 145,
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -155,18 +149,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         itemBuilder: (context, index) {
                           final banner = banners[index];
-                          return Container(
-                            margin: EdgeInsets.symmetric(horizontal: 4),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 12,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                image: AssetImage(banner['bgImage']!),
-                                fit: BoxFit.fill,
-                              ),
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.asset(
+                              banner['bgImage']!,
+                              fit: BoxFit.cover, // Completely fills the container without stretching distortion
+                              width: double.infinity,
+                              height: double.infinity,
                             ),
                           );
                         },
@@ -205,15 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   TextButton(
-                    onPressed: () {
-                      // عند الضغط على See All يتم الانتقال لشاشة عرض كل المنتجات بالشبكة
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => SeeAllProductsScreen(products: products),
-                      //   ),
-                      // );
-                    },
+                    onPressed: () {},
                     child: Text(
                       'See all',
                       style: TextStyle(color: Colors.green),
@@ -291,7 +272,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     '\$${product.price.toStringAsFixed(2)}',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  // 3. زر (+) قابل للنقر للانتقال لشاشة أخرى
+
                   InkWell(
                     onTap: () {
                       final int addedQuantity = 1;
