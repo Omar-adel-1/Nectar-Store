@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_store/CartScreen.dart';
+import 'package:nectar_store/ExploreScreen.dart';
 import 'package:nectar_store/FavouriteScreen.dart';
 import 'package:nectar_store/HomeScreen.dart';
 
@@ -13,7 +14,7 @@ class NavigationBarScreen extends StatefulWidget {
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
   final List<Widget> NavegationbarScreens = [
     HomeScreen(),
-    Text('Explore Screen'),
+    ExploreScreen(),
     CartScreen(),
     FavouriteScreen(),
     Text('Account Screen'),

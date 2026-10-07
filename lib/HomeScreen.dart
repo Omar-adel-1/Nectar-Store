@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nectar_store/AppData.dart';
 import 'package:nectar_store/CartItam.dart';
 import 'package:nectar_store/Prodect.dart';
 import 'package:nectar_store/ProductDetailScreen.dart';
+import 'package:nectar_store/SeeAllScreen.dart';
 
 final PageController _bannerPageController = PageController();
 int _currentBannerIndex = 0;
@@ -20,45 +22,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Product> products = [
-    Product(
-      name: 'Red Apple',
-      quantity: 1,
-      price: 4.99,
-      imagePath: 'assets/images/Apple.png',
-    ),
-    Product(
-      name: 'Organic Bananas',
-      quantity: 7,
-      price: 4.99,
-      imagePath: 'https://cdn-icons-png.flaticon.com/512/2909/2909808.png',
-    ),
-
-    Product(
-      name: 'Bell Pepper Red',
-      quantity: 1,
-      price: 4.99,
-      imagePath: 'https://cdn-icons-png.flaticon.com/512/765/765544.png',
-    ),
-    Product(
-      name: 'Ginger',
-      quantity: 1,
-      price: 2.99,
-      imagePath: 'https://cdn-icons-png.flaticon.com/512/1135/1135241.png',
-    ),
-    Product(
-      name: 'Beef Bone',
-      quantity: 1,
-      price: 8.99,
-      imagePath: 'https://cdn-icons-png.flaticon.com/512/3143/3143643.png',
-    ),
-    Product(
-      name: 'Broiler Chicken',
-      quantity: 1,
-      price: 5.99,
-      imagePath: 'https://cdn-icons-png.flaticon.com/512/1046/1046751.png',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(16),
                             child: Image.asset(
                               banner['bgImage']!,
-                              fit: BoxFit.cover, // Completely fills the container without stretching distortion
+                              fit: BoxFit.cover, 
                               width: double.infinity,
                               height: double.infinity,
                             ),
@@ -194,7 +157,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Seeallscreen(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'See all',
                       style: TextStyle(color: Colors.green),
@@ -207,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
               GridView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: 1,
+                itemCount: 6,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.75,
@@ -215,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisSpacing: 12,
                 ),
                 itemBuilder: (context, index) {
-                  return buildProductCard(context, products[index]);
+                  return buildProductCard(context, AppData.allProducts[index*9]);
                 },
               ),
 
@@ -316,4 +286,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 }

@@ -15,7 +15,6 @@ class ProductDetailScreen extends StatefulWidget {
 class ProductDetailScreenState extends State<ProductDetailScreen> {
   bool isFavorite = false;
   int quantity = 1;
-  final double _unitPrice = 4.99;
 
   @override
   void initState() {
@@ -231,7 +230,7 @@ class ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
 
                         Text(
-                          '\$${(_unitPrice * quantity).toStringAsFixed(2)}',
+                          '\$${(widget.productDetiles.price * quantity).toStringAsFixed(2)}',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,

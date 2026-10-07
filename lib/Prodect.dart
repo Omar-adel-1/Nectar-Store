@@ -4,6 +4,7 @@ class Product {
   final double price;
   final String imagePath;
   final String? detiles;
+  final String category; 
 
   Product({
     required this.name,
@@ -11,5 +12,6 @@ class Product {
     required this.price,
     required this.imagePath,
      this.detiles,
+    required this.category,
   });
 }
