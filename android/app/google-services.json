@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "624356040244",
+    "project_id": "nectar-store-c3ea3",
+    "storage_bucket": "nectar-store-c3ea3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624356040244:android:af178db08fd50868917461",
+        "android_client_info": {
+          "package_name": "com.example.nectar_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624356040244-18r44vgdpd6ipqu4mam9cpc72p936f8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nectar_store",
+            "certificate_hash": "7efc02138d5b8fe7528182939c65f8a7b959aef4"
+          }
+        },
+        {
+          "client_id": "624356040244-pnoraa40jnjk59pojibaem2u6mevu788.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSh335cSh7si3LMCkxMN9iZv1jPHzazd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624356040244-pnoraa40jnjk59pojibaem2u6mevu788.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "624356040244-ea6h5dcfj43quu94rm8h3h23klbihcgk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nectarStore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
