@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/OrderData.dart';
+import 'package:nectar_store/data/OrderData.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
@@ -13,10 +13,7 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Orders'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('My Orders'), centerTitle: true),
       body: AnimatedBuilder(
         animation: OrderData.instance,
         builder: (context, _) {

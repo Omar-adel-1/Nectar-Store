@@ -1,4 +1,4 @@
-import 'package:nectar_store/Prodect.dart';
+import 'package:nectar_store/data/Prodect.dart';
 
 class AppData {
   static List<Product> allProducts = [

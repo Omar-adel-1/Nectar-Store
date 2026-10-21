@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:nectar_store/Prodect.dart';
+import 'package:nectar_store/data/Prodect.dart';
 
 class Favouriteprodect extends ChangeNotifier {
   Favouriteprodect._();
@@ -21,9 +21,8 @@ class Favouriteprodect extends ChangeNotifier {
     instance.notifyListeners();
   }
 
-  static bool isFavourite(Product product) => instance._products.any(
-        (item) => item.imagePath == product.imagePath,
-      );
+  static bool isFavourite(Product product) =>
+      instance._products.any((item) => item.imagePath == product.imagePath);
 
   static void remove(Product product) {
     instance._products.removeWhere(

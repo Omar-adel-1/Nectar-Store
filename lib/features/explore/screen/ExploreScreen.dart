@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/CategoryProductsScreen.dart';
+import 'package:nectar_store/features/product/screen/CategoryProductsScreen.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({super.key});
@@ -9,39 +9,39 @@ class ExploreScreen extends StatelessWidget {
     final List<Map<String, dynamic>> categories = [
       {
         'title': 'Fresh Fruits',
-        'color':  Color(0xFFE8F5E9),
-        'borderColor':  Color(0xFFC8E6C9),
+        'color': Color(0xFFE8F5E9),
+        'borderColor': Color(0xFFC8E6C9),
         'image': 'assets/images/freshfruit.png',
       },
       {
         'title': 'Vegetables',
-        'color':  Color(0xFFFFF3E0),
-        'borderColor':  Color(0xFFFFE0B2),
+        'color': Color(0xFFFFF3E0),
+        'borderColor': Color(0xFFFFE0B2),
         'image': 'assets/images/Vegetables.png',
       },
       {
         'title': 'Meat & Fish',
-        'color':  Color(0xFFFFEBEE),
-        'borderColor':  Color(0xFFFFCDD2),
+        'color': Color(0xFFFFEBEE),
+        'borderColor': Color(0xFFFFCDD2),
         'image': 'assets/images/Meat&fFish.png',
       },
       {
         'title': 'Bakery & Snacks',
-        'color':  Color(0xFFF3E5F5),
-        'borderColor':  Color(0xFFE1BEE7),
+        'color': Color(0xFFF3E5F5),
+        'borderColor': Color(0xFFE1BEE7),
         'image': 'assets/images/Bakery&Snacks.png',
       },
       {
         'title': 'Drinks',
-        'color':  Color(0xFFE3F2FD),
-        'borderColor':  Color(0xFFBBDEFB),
+        'color': Color(0xFFE3F2FD),
+        'borderColor': Color(0xFFBBDEFB),
         'image': 'assets/images/Drinks.png',
       },
       {
         'title': 'Packaged Goods',
-        'color':  Color(0xFFFFF8E1),
-        'borderColor':  Color(0xFFFFECB3),
-        'image': 'assets/images/packagedGoods.png', 
+        'color': Color(0xFFFFF8E1),
+        'borderColor': Color(0xFFFFECB3),
+        'image': 'assets/images/packagedGoods.png',
       },
     ];
 
@@ -49,12 +49,12 @@ class ExploreScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-               SizedBox(height: 20),
-               Text(
+              SizedBox(height: 20),
+              Text(
                 'Find Products',
                 style: TextStyle(
                   fontSize: 22,
@@ -62,13 +62,13 @@ class ExploreScreen extends StatelessWidget {
                   color: Colors.black87,
                 ),
               ),
-               SizedBox(height: 20),
+              SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child:  TextField(
+                child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search Store',
                     hintStyle: TextStyle(color: Colors.grey),
@@ -78,17 +78,16 @@ class ExploreScreen extends StatelessWidget {
                   ),
                 ),
               ),
-               SizedBox(height: 20),
+              SizedBox(height: 20),
               Expanded(
                 child: GridView.builder(
-                  physics:  BouncingScrollPhysics(),
+                  physics: BouncingScrollPhysics(),
                   itemCount: categories.length,
-                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 15,
                     mainAxisSpacing: 15,
-                    childAspectRatio:
-                        0.8, 
+                    childAspectRatio: 0.8,
                   ),
                   itemBuilder: (context, index) {
                     return _buildCategoryCard(
@@ -136,17 +135,16 @@ class ExploreScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           onTap: onTap,
           child: Padding(
-            padding:  EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-             
                 Expanded(child: Image.asset(imagePath, fit: BoxFit.contain)),
-                 SizedBox(height: 10),
+                SizedBox(height: 10),
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style:  TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.black87,

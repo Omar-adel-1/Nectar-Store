@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:nectar_store/Prodect.dart';
+import 'package:nectar_store/data/Prodect.dart';
 
 class CartItem {
   final Product product;
@@ -60,19 +60,15 @@ class CartData extends ChangeNotifier {
     }
   }
 
-  static double get totalPrice => instance._items.fold(
-        0,
-        (total, item) => total + item.total,
-      );
+  static double get totalPrice =>
+      instance._items.fold(0, (total, item) => total + item.total);
 
-  static int get totalItems => instance._items.fold(
-        0,
-        (total, item) => total + item.quantity,
-      );
+  static int get totalItems =>
+      instance._items.fold(0, (total, item) => total + item.quantity);
 
   static bool contains(Product product) => instance._items.any(
-        (item) => item.product.imagePath == product.imagePath,
-      );
+    (item) => item.product.imagePath == product.imagePath,
+  );
 
   static List<CartItem> snapshot() => instance._items
       .map((item) => CartItem(product: item.product, quantity: item.quantity))

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/OrderData.dart';
 import 'package:nectar_store/core/routes/app_routes.dart';
+import 'package:nectar_store/data/OrderData.dart';
 import 'package:nectar_store/features/auth/data/auth_service.dart';
-import 'package:nectar_store/screens/ordersScreen.dart';
+import 'package:nectar_store/features/orders/screen/ordersScreen.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -21,10 +21,7 @@ class AccountScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () => Navigator.pop(dialogContext, true),
-              child: const Text(
-                'Logout',
-                style: TextStyle(color: Colors.red),
-              ),
+              child: const Text('Logout', style: TextStyle(color: Colors.red)),
             ),
           ],
         );
@@ -37,11 +34,7 @@ class AccountScreen extends StatelessWidget {
 
     if (!context.mounted) return;
 
-    Navigator.pushNamedAndRemoveUntil(
-      context,
-      AppRoutes.login,
-      (_) => false,
-    );
+    Navigator.pushNamedAndRemoveUntil(context, AppRoutes.login, (_) => false);
   }
 
   @override
@@ -122,9 +115,7 @@ class AccountScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (_) => const OrdersScreen(),
-                    ),
+                    MaterialPageRoute(builder: (_) => const OrdersScreen()),
                   );
                 },
               ),
@@ -132,10 +123,7 @@ class AccountScreen extends StatelessWidget {
               const Divider(),
 
               ListTile(
-                leading: const Icon(
-                  Icons.logout,
-                  color: Colors.red,
-                ),
+                leading: const Icon(Icons.logout, color: Colors.red),
                 title: const Text(
                   'Log Out',
                   style: TextStyle(
@@ -143,10 +131,7 @@ class AccountScreen extends StatelessWidget {
                     color: Colors.red,
                   ),
                 ),
-                trailing: const Icon(
-                  Icons.chevron_right,
-                  color: Colors.grey,
-                ),
+                trailing: const Icon(Icons.chevron_right, color: Colors.grey),
                 onTap: () => _logout(context),
               ),
             ],

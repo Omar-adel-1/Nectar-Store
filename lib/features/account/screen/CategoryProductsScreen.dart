@@ -1,74 +1,67 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/AppData.dart';
-import 'package:nectar_store/CartItam.dart';
-import 'package:nectar_store/Prodect.dart';
-import 'package:nectar_store/ProductDetailScreen.dart';
+import 'package:nectar_store/data/AppData.dart';
+import 'package:nectar_store/data/CartItam.dart';
+import 'package:nectar_store/data/Prodect.dart';
+import 'package:nectar_store/features/product/screen/ProductDetailScreen.dart';
 
-class Seeallscreen extends StatefulWidget {
-  const Seeallscreen({super.key});
+class CategoryProductsScreen extends StatefulWidget {
+  final String categoryName;
+
+  const CategoryProductsScreen({Key? key, required this.categoryName})
+    : super(key: key);
 
   @override
-  State<Seeallscreen> createState() => _SeeallscreenState();
+  State<CategoryProductsScreen> createState() => _CategoryProductsScreenState();
 }
 
-class _SeeallscreenState extends State<Seeallscreen> {
+class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   @override
   Widget build(BuildContext context) {
+    final categoryProducts = AppData.allProducts
+        .where((product) => product.category == widget.categoryName)
+        .toList();
+
     return Scaffold(
       backgroundColor: Colors.white,
-      
-  
+
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0, 
+        elevation: 0,
         centerTitle: true,
-        
-        
+
         leading: IconButton(
-          icon:  Icon(Icons.arrow_back_ios, color: Colors.black87, size: 20),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black87, size: 20),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        
-       
+
         title: Text(
-          "All Products",
-          style:  TextStyle(
+          widget.categoryName,
+          style: TextStyle(
             color: Colors.black87,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        
-      
       ),
-      
-   
-      body: SafeArea(child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 20),
-           
-            GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: AppData.allProducts.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.75,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                ),
-                itemBuilder: (context, index) {
-                  return buildProductCard(context, AppData.allProducts[index]);
-                },
-              ),
-          ],
+
+      body: GridView.builder(
+        padding: EdgeInsets.all(16.0),
+        itemCount: categoryProducts.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 15.0,
+          mainAxisSpacing: 15.0,
+          childAspectRatio: 0.75,
         ),
-      )),
+        itemBuilder: (context, index) {
+          return buildProductCard(context, categoryProducts[index]);
+        },
+      ),
     );
   }
+
   Widget buildProductCard(BuildContext context, Product product) {
     return Container(
       decoration: BoxDecoration(
@@ -144,5 +137,4 @@ class _SeeallscreenState extends State<Seeallscreen> {
       ),
     );
   }
-
 }

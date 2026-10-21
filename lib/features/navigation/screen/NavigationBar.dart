@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/CartScreen.dart';
-import 'package:nectar_store/ExploreScreen.dart';
-import 'package:nectar_store/FavouriteScreen.dart';
-import 'package:nectar_store/HomeScreen.dart';
-import 'package:nectar_store/screens/accountScreen.dart';
+import 'package:nectar_store/features/account/screen/accountScreen.dart';
+import 'package:nectar_store/features/cart/screen/CartScreen.dart';
+import 'package:nectar_store/features/explore/screen/ExploreScreen.dart';
+import 'package:nectar_store/features/favourites/screen/FavouriteScreen.dart';
+import 'package:nectar_store/features/home/screens/HomeScreen.dart';
 
 class NavigationBarScreen extends StatefulWidget {
   const NavigationBarScreen({super.key});

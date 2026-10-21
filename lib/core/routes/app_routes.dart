@@ -3,7 +3,7 @@ import 'package:nectar_store/features/auth/screens/forgot_password_screen.dart';
 import 'package:nectar_store/features/auth/screens/login_screen.dart';
 import 'package:nectar_store/features/auth/screens/get_started_screen.dart';
 import 'package:nectar_store/features/auth/screens/signup_screen.dart';
-import 'package:nectar_store/NavigationBar.dart';
+import 'package:nectar_store/features/navigation/screen/NavigationBar.dart';
 import 'package:nectar_store/features/onboarding/on_boarding_screen.dart';
 import 'package:nectar_store/features/search/screen/search_screen.dart';
 import 'package:nectar_store/features/splash/splash_screen.dart';

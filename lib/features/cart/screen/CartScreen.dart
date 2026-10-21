@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/CartItam.dart';
 import 'package:nectar_store/customWidgets/CustomBottomSheet.dart';
+import 'package:nectar_store/data/CartItam.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -33,7 +33,12 @@ class CartScreen extends StatelessWidget {
               final product = item.product;
               return Row(
                 children: [
-                  Image.asset(product.imagePath, width: 70, height: 70, fit: BoxFit.contain),
+                  Image.asset(
+                    product.imagePath,
+                    width: 70,
+                    height: 70,
+                    fit: BoxFit.contain,
+                  ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: Column(
@@ -42,7 +47,13 @@ class CartScreen extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
-                              child: Text(product.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                              child: Text(
+                                product.name,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
                             ),
                             IconButton(
                               onPressed: () => CartData.removeProduct(product),
@@ -50,7 +61,10 @@ class CartScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Text(product.detiles ?? '1kg, Price', style: const TextStyle(color: Colors.grey)),
+                        Text(
+                          product.detiles ?? '1kg, Price',
+                          style: const TextStyle(color: Colors.grey),
+                        ),
                         const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,18 +73,32 @@ class CartScreen extends StatelessWidget {
                               children: [
                                 IconButton(
                                   onPressed: () => CartData.decrease(product),
-                                  icon: const Icon(Icons.remove, color: Colors.grey),
+                                  icon: const Icon(
+                                    Icons.remove,
+                                    color: Colors.grey,
+                                  ),
                                 ),
-                                Text('${item.quantity}', style: const TextStyle(fontWeight: FontWeight.bold)),
+                                Text(
+                                  '${item.quantity}',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                                 IconButton(
                                   onPressed: () => CartData.increase(product),
-                                  icon: const Icon(Icons.add, color: Color(0xFF53B175)),
+                                  icon: const Icon(
+                                    Icons.add,
+                                    color: Color(0xFF53B175),
+                                  ),
                                 ),
                               ],
                             ),
                             Text(
                               '\$${item.total.toStringAsFixed(2)}',
-                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ],
                         ),
@@ -95,21 +123,37 @@ class CartScreen extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF53B175),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                   ),
                   onPressed: () {
                     showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
                       backgroundColor: Colors.transparent,
-                      builder: (_) => CustomBottomSheet(totalCost: CartData.totalPrice),
+                      builder: (_) =>
+                          CustomBottomSheet(totalCost: CartData.totalPrice),
                     );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Go to Checkout', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17)),
-                      Text('\$${CartData.totalPrice.toStringAsFixed(2)}', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      const Text(
+                        'Go to Checkout',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
+                      ),
+                      Text(
+                        '\$${CartData.totalPrice.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),

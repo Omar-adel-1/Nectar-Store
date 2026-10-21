@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:nectar_store/CartItam.dart';
+import 'package:nectar_store/data/CartItam.dart';
 
 class OrderModel {
   final String id;

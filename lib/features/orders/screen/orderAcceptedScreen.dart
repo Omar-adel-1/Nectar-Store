@@ -22,7 +22,11 @@ class OrderAcceptedScreen extends StatelessWidget {
                     color: Color(0xFFE8F5E9),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.check, size: 55, color: Color(0xFF53B175)),
+                  child: const Icon(
+                    Icons.check,
+                    size: 55,
+                    color: Color(0xFF53B175),
+                  ),
                 ),
                 const SizedBox(height: 35),
                 const Text(
@@ -41,18 +45,40 @@ class OrderAcceptedScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 55,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.pushNamedAndRemoveUntil(context, AppRoutes.home, (_) => false),
+                    onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      AppRoutes.home,
+                      (_) => false,
+                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF53B175),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                     ),
-                    child: const Text('Back to home', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                    child: const Text(
+                      'Back to home',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
                 TextButton(
-                  onPressed: () => Navigator.pushNamedAndRemoveUntil(context, AppRoutes.home, (_) => false),
-                  child: const Text('Back to home', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                  onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    AppRoutes.home,
+                    (_) => false,
+                  ),
+                  child: const Text(
+                    'Back',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),

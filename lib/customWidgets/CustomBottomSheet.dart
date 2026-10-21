@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_store/customWidgets/CustomErrorMessage.dart';
-import 'package:nectar_store/screens/orderAcceptedScreen.dart';
+import 'package:nectar_store/features/orders/screen/orderAcceptedScreen.dart';
 
 class CustomBottomSheet extends StatefulWidget {
   new({super.key, required this.totalCost});

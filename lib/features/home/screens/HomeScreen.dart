@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/AppData.dart';
-import 'package:nectar_store/CartItam.dart';
-import 'package:nectar_store/Prodect.dart';
-import 'package:nectar_store/ProductDetailScreen.dart';
-import 'package:nectar_store/SeeAllScreen.dart';
+import 'package:nectar_store/data/AppData.dart';
+import 'package:nectar_store/data/CartItam.dart';
+import 'package:nectar_store/data/Prodect.dart';
+import 'package:nectar_store/features/account/screen/SeeAllScreen.dart';
+import 'package:nectar_store/features/product/screen/ProductDetailScreen.dart';
 
 final PageController _bannerPageController = PageController();
 int _currentBannerIndex = 0;

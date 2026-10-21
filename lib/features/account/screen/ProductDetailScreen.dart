@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/CartItam.dart';
-import 'package:nectar_store/FavouriteProdect.dart';
-import 'package:nectar_store/Prodect.dart';
+import 'package:nectar_store/data/CartItam.dart';
+import 'package:nectar_store/data/FavouriteProdect.dart';
+import 'package:nectar_store/data/Prodect.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final Product productDetiles;
@@ -19,7 +19,7 @@ class ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   void initState() {
     super.initState();
-    
+
     isFavorite = Favouriteprodect.favouriteproduct.any(
       (product) => product.name == widget.productDetiles.name,
     );
@@ -152,13 +152,17 @@ class ProductDetailScreenState extends State<ProductDetailScreen> {
                           onPressed: () {
                             Favouriteprodect.toggle(widget.productDetiles);
                             setState(() {
-                              isFavorite = Favouriteprodect.isFavourite(widget.productDetiles);
+                              isFavorite = Favouriteprodect.isFavourite(
+                                widget.productDetiles,
+                              );
                             });
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 backgroundColor: const Color(0xFF53B175),
                                 content: Text(
-                                  isFavorite ? 'Added to favorites' : 'Removed from favorites',
+                                  isFavorite
+                                      ? 'Added to favorites'
+                                      : 'Removed from favorites',
                                 ),
                                 duration: const Duration(seconds: 1),
                               ),

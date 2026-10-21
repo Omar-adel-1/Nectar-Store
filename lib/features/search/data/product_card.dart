@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nectar_store/data/CartItam.dart';
 import 'package:nectar_store/features/search/models/product_model.dart';
-import 'package:nectar_store/CartItam.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;

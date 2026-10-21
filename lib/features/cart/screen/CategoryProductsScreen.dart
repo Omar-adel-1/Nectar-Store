@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_store/AppData.dart';
-import 'package:nectar_store/CartItam.dart';
-import 'package:nectar_store/Prodect.dart';
-import 'package:nectar_store/ProductDetailScreen.dart';
+import 'package:nectar_store/data/AppData.dart';
+import 'package:nectar_store/data/CartItam.dart';
+import 'package:nectar_store/data/Prodect.dart';
+import 'package:nectar_store/features/product/screen/ProductDetailScreen.dart';
 
 class CategoryProductsScreen extends StatefulWidget {
   final String categoryName;
@@ -15,10 +15,8 @@ class CategoryProductsScreen extends StatefulWidget {
 }
 
 class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
-  
   @override
   Widget build(BuildContext context) {
-
     final categoryProducts = AppData.allProducts
         .where((product) => product.category == widget.categoryName)
         .toList();
